@@ -1,41 +1,74 @@
-/* Стилізація верхньої панелі */
-/* Якщо ви хочете, щоб фон був також для конкретних елементів, наприклад, header або main */
-main, .artists-page header, .artists-page.search-section, .artists-page.filter-section, .artists-page.arrow-img-sort,.artists-page.navigation{
-    background-color: #A59987;
+@use 'vars' as *;
+@use 'fonts' as *;
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Akaya Kanadaka", serif;
+    box-sizing: border-box;
 }
 
-// Загальні стилі для хедера
-// SCSS для оновленого хедера
+
+
 header {
+    margin: 20px 0px 20px 0px;
+    padding: 0px 80px 0px 80px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    background-color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: $white-brown;
+    border: 1px solid rgba($dark-red, 0.5);
   
     .logo {
-      img {
-        width: 120px;
-        height: auto;
-      }
+        position: relative; // Контекст для абсолютного позиціонування
+        width: 266px;
+        height: 97px;
+    
+        .logo-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: $dark-brown;
+            background-size: cover;
+            filter: blur(10px); // Розмиття тільки для фону
+            z-index: 1; // Фон позаду тексту
+        }
+    
+        .logo-text {
+            left: 30;
+            position: relative; // Текст залишається зверху
+            z-index: 2; // Вищий шар над фоном
+            text-decoration: none;
+            color: $white;
+            font-family: "My Soul", serif;
+            @include font(64, 400); // Ваш міксин для шрифта
+            -webkit-text-stroke: 0.4px rgba(255, 0, 0, 1); // Обводка навколо шрифта
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            text-align: center;
+            line-height: 97px; // Вертикальне вирівнювання в межах блоку
+        }
     }
-  
+
     .menu {
       ul.navigation {
         display: flex;
-        gap: 1.5rem;
-  
+        gap: 100px;
+        list-style: none;
+
         li {
           a {
+            font-family: "My Soul", serif;
             text-decoration: none;
-            color: #333;
-            font-size: 1rem;
-            font-weight: 600;
+            color: $white;
+            @include font(64, 400);
+            -webkit-text-stroke: 0.4px $black; // Обводка навколо шрифта
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
             transition: color 0.3s ease;
   
             &:hover {
-              color: #007bff;
+              color: $white-red;
             }
           }
         }
@@ -48,7 +81,7 @@ header {
   
       a {
         img {
-          width: 25px;
+          width: 55px;
           height: auto;
           transition: opacity 0.3s ease;
         }
@@ -59,182 +92,585 @@ header {
       }
     }
 }
-  
 
-.artists-page header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
-    padding: 15px 20px;
+.home-page{
+    background-color: $brown;
+    main{
+        padding: 0px 0px 0px 0px;
+        .container {
+            display: flex;
+            .left-content {
+                position: relative; // Контекст для псевдоелементів
+                margin: 0px 0px 0px 80px;
+                width: 275px;
+                display: flex; // Центрування по вертикалі
+                flex-direction: column;
+                align-items: center; // Центрування по горизонталі
+            
+                .left-content-header {
+                    margin: -20px 9px 0px 0px;
+                    @include font(32, 400);
+                    font-family: "Beau Rivage", serif;
+                }
+            
+                .quote {
+                    position: relative; // Контекст для фону
+                    margin: 0px 9px 0px 0px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center; // Центрування зображення і тексту
+                    text-align: center; // Текст по центру
+                
+                    img {
+                        width: 220px;
+                        height: 280px;
+                        margin: 50px 0px 20px 0px;
+                    }
+                
+                    .text-quote,
+                    .text-author {
+                        display: inline-block; // Дозволяє фону бути тільки під текстом
+                        position: relative; // Контекст для псевдоелементів
+                    }
+                
+                    .text-quote {
+                        padding: 10px 0px 0px 30px;
+                        @include font(20, 400);
+                        color: $black;
+                        text-align: left;
+                    }
+                
+                    .text-author {
+                        padding: 10px 25px 0px 30px;
+                        @include font(16, 400);
+                        color: $black;
+                        align-self: flex-end;
+                        text-align: right;
+                    }
+                
+                    .quote-background {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background-color: #C02C16; // Колір фону
+                        filter: blur(20px); // Розмиття фону
+                        z-index: -1; // Фон знаходиться позаду тексту
+                    }
+                }
+                
+
+                // Псевдоелемент для ліній та фону
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: -150px; // Розтягнути на всю висоту
+                    bottom: 0;
+                    left: 0;
+                    right: 9; // Зайняти всю ширину
+                    background: linear-gradient(
+                        to right,
+                        rgba($dark-red, 0.5) 0%,       // Ліва лінія
+                        $white-brown 1px,              // Фон
+                        $white-brown calc(100% - 1px), // Фон до правої лінії
+                        rgba($dark-red, 0.5) 100%      // Права лінія
+                        
+                    );
+                    z-index: -1; // Відправити лінії на задній план
+                }
+            }
+            
+            .main-content {
+                flex: 1; // Права колонка
+                padding-left: 1rem;
+                .gallery {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center; // Центрування всіх елементів
+                    gap: 20px;
+            
+                    .mainPhotoGallery {
+                        width: 100%;
+                        display: flex;
+                        justify-content: center; // Центрування першої фотографії
+                        img {
+                            max-width: 100%;
+                            height: auto;
+                        }
+                        padding: 0 0 40px 0;
+                    }
+            
+                    // Контейнер для трьох колонок
+                    .items-grid {
+                        display: grid;
+                        grid-template-columns: repeat(3, 1fr); // Три колонки
+                        gap: 20px; // Відстань між елементами
+                        width: 100%;
+                        padding: 0 20px;
+            
+                        .item {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            text-align: center;
+                            gap: 10px;
+            
+                            a {
+                                img {
+                                    max-width: 100%;
+                                    height: auto;
+                                    border-radius: 10px;
+                                }
+                            }
+            
+                            h3 {
+                                font-family: "Akaya Kanadaka", serif;
+                                @include font(32, 400);
+                                color: $white;
+                            }
+            
+                            p {
+                                font-family: "Akaya Kanadaka", serif;
+                                @include font(36, 400);
+                                color: $white;
+                                padding: 0 20px 20px 0;
+                            }
+            
+                            .author {
+                                display: flex; /* Використовуємо flexbox для розташування елементів в ряд */
+                                align-items: center; /* Вертикальне вирівнювання елементів по центру */
+                                gap: 10px; /* Відстань між фото і текстом */
+                                justify-content: flex-start; /* Вирівнювання елементів по лівому краю */
+                                
+                                img {
+                                    width: 90px; /* Ширина фотографії */
+                                    height: 90px; /* Висота фотографії */
+                                    border-radius: 50%; /* Округлені кути для фото */
+                                }
+                            
+                                .author-text {
+                                    padding: 5px;
+                                    font-family: "Aoboshi One", serif;
+                                    @include font(24, 400);
+                                    color: $white;
+                                }
+                                padding-bottom: 50px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
-.artists-page {
-    
-    font-family: 'Arial', sans-serif;
-    color: #333;
-    margin: 0;
-    padding: 0;
-}
-/* Стиль для .search-sectionsort, щоб розташувати його по центру */
-.artists-page.search-sectionsort {
-    display: flex;
-    justify-content: center;  /* Горизонтальне вирівнювання по центру */
-    align-items: center;      /* Вертикальне вирівнювання по центру */
-    position: absolute;       /* Використовуємо абсолютне позиціонування для розташування */
-    top: 50%;                 /* Центруємо по вертикалі */
-    left: 50%;                /* Центруємо по горизонталі */
-    transform: translate(-50%, -50%); /* Зміщуємо елемент на 50% назад, щоб він був точно по центру */
-    width: 80%;               /* За потреби обмежуємо ширину */
-    max-width: 600px;         /* Максимальна ширина елемента */
-    padding: 20px;
-    background-color: #fff;   /* За бажанням додайте фон */
-    border-radius: 10px;      /* За бажанням додайте округлені кути */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Легенька тінь */
-}
-
-
-.artists-page .logo img {
-    height: 100px;
-}
-.arrow-img-sort {
-    cursor: pointer; /* Вказує, що це клікабельний елемент */
-}
-
-.artists-page .navigation {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-}
-
-.artists-page .navigation li {
-    margin: 0 20px;
-}
-
-.artists-page .navigation a img {
-    height: 35px;
-}
-
-.artists-page .social-icons img {
-    height: 25px;
-    margin-left: 10px;
-}
-.doublearrow-img {
-    pointer-events: none; /* Забороняє будь-які події на зображенні */
-    cursor: default; /* Забезпечує курсор "default", якщо наведено */
-}
-.arrow-img {
-    pointer-events: none; /* Забороняє будь-які події на зображенні */
-    cursor: default; /* Забезпечує курсор "default", якщо наведено */
-}
-
-/* Пошук */
-.artists-page .search-section {
-
-    display: flex;
-    align-items: center;
-    margin: 20px 0;
-}
 
 .artists-page{
+    background-color: $brown;
+    main{
+        padding: 0px 0px 0px 0px;
+        .container {
+            display: flex;
+            .left-content {
+                position: relative; // Контекст для псевдоелементів
+                margin: 0px 0px 0px 80px;
+                width: 275px;
+                display: flex; // Центрування по вертикалі
+                flex-direction: column;
+                
 
-    display: flex;
-    align-items: center;
-    margin: 20px 0;
-}
-.artists-page #searchInput {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 220px;
+                .filter-section {
+                    padding: 10px 0px 0px 0px;
+                    h2 {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        font-family: "Aoboshi One", serif;
+                        @include font(48, 400);
+                        color: $white;
+                        margin: 0px 20px 20px ;
+                
+                        .doublearrow-img {
+                            margin: 17px 0 0 0 ;
+                            width: 40px;
+                            height: 40px;
+                        }
+                    }
+                
+                    h3 {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        font-family: "Aoboshi One", serif;
+                        @include font(24, 400);
+                        color: $white;
+                        margin: 20px 20px 10px;
+                
+                        .arrow-img {
+                            margin: 5px 0 0 0 ;
+                            width: 17px;
+                            height: 12px;
+                        }
+                    }
+                
+                    ul {
+                        list-style: none;
+                        padding: 0;
+                
+                        li {
+                            padding: 0px 0px 0px 20px;
+                            display: flex;
+                            align-items: center;
+                            margin-bottom: 10px;
+                            font-family: "Aoboshi One", serif;
+                            @include font(20, 400);
+                            color: #FCE1E1;
+                
+                            &.item img {
+                                margin-right: 10px;
+                                width: 30px;
+                                height: 30px;
+                            }
+                        }
+                    }
+                }
+
+
+                // Псевдоелемент для ліній та фону
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: -150px; // Розтягнути на всю висоту
+                    bottom: 0;
+                    left: 0;
+                    right: 9; // Зайняти всю ширину
+                    background: linear-gradient(
+                        to right,
+                        rgba($dark-red, 0.5) 0%,       // Ліва лінія
+                        $white-brown 1px,              // Фон
+                        $white-brown calc(100% - 1px), // Фон до правої лінії
+                        rgba($dark-red, 0.5) 100%      // Права лінія
+                        
+                    );
+                    z-index: -1; // Відправити лінії на задній план
+                }
+            }
+            
+            .main-content {
+                padding: 20px;
+                width: 80%; /* Забезпечуємо ширину 100% екрану */
+            
+                .galleryArtist {
+                    display: flex;
+                    flex-direction: column; /* Виводимо авторів вертикально */
+                    gap: 30px; /* Відступи між блоками авторів */
+                    width: 100%; /* Забезпечуємо ширину на 100% */
+            
+                    .author-block {
+                        display: flex;
+                        flex-direction: column; /* Виводимо дані автора та його роботи вертикально */
+                        gap: 20px; /* Відступ між інформацією про автора та роботами */
+                        background-color: #C97575;
+                        padding: 20px;
+                        border-radius: 10px;
+                        width: 100%; /* Забезпечуємо, щоб блоки авторів займали всю ширину */
+            
+                        .author {
+                            display: flex;
+                            align-items: center;
+                            width: 100%; /* Ширина автора на всю ширину */
+            
+                            img {
+                                width: 87px;
+                                height: 87px;
+                                border-radius: 50%;
+                                margin-right: 15px;
+                            }
+            
+                            h6 {
+                                font-family: "Aoboshi One", serif;
+                                @include font(24, 400);
+                                color: $white;
+                            }
+                        }
+            
+                        .works {
+                            display: flex; /* Виводимо роботи в рядок */
+                            flex-wrap: wrap; /* Переносимо роботи, якщо вони не поміщаються */
+                            gap: 15px; /* Відступи між роботами */
+                            justify-content: space-between; /* Для заповнення всього простору */
+                            width: 100%; /* Забезпечуємо, щоб блоки робіт займали всю ширину */
+                            margin-top: 20px; /* Відступ зверху */
+            
+                            .work {
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                text-align: center;
+                                width: calc(33.33% - 10px); /* Кожен елемент займає 1/3 ширини зі відступами між ними */
+            
+                                img {
+                                    width: 70%; /* Робимо зображення адаптивним */
+                                    height: auto;
+                                    border-radius: 8px;
+                                    margin-bottom: 10px;
+                                }
+            
+                                h6 {
+                                    font-family: "Arapey", serif;
+                                    @include font(24, 400);
+                                    color: $white;
+                                    margin: 5px 0;
+                                }
+            
+                                p {
+                                    font-family: "Arapey", serif;
+                                    @include font(24, 400);
+                                    color: $white;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
-.artists-page #searchButton {
-    background-color: #d2b48c;
-    border: none;
-    padding: 10px 15px;
-    margin-left: 5px;
-    cursor: pointer;
-    border-radius: 5px;
+.events-page{
+    background-color: $brown;
+    main{
+        padding: 0px 0px 0px 0px;
+        .container {
+            display: flex;
+            justify-content: space-between; /* Забезпечуємо відстань між секціями */
+            .left-content {
+                position: relative; // Контекст для псевдоелементів
+                margin: 0px 0px 0px 80px;
+                width: 275px;
+                display: flex; // Центрування по вертикалі
+                flex-direction: column;
+                align-items: center; // Центрування по горизонталі
+            
+                .left-content-header {
+                    margin: -20px 9px 0px 0px;
+                    @include font(32, 400);
+                    font-family: "Beau Rivage", serif;
+                }
+            
+                .quote {
+                    position: relative; // Контекст для фону
+                    margin: 0px 9px 0px 0px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center; // Центрування зображення і тексту
+                    text-align: center; // Текст по центру
+                
+                    img {
+                        width: 220px;
+                        height: 280px;
+                        margin: 50px 0px 20px 0px;
+                    }
+                
+                    .text-quote,
+                    .text-author {
+                        display: inline-block; // Дозволяє фону бути тільки під текстом
+                        position: relative; // Контекст для псевдоелементів
+                    }
+                
+                    .text-quote {
+                        padding: 10px 0px 0px 30px;
+                        @include font(20, 400);
+                        color: $black;
+                        text-align: left;
+                    }
+                
+                    .text-author {
+                        padding: 10px 25px 0px 30px;
+                        @include font(16, 400);
+                        color: $black;
+                        align-self: flex-end;
+                        text-align: right;
+                    }
+                
+                    .quote-background {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background-color: #C02C16; // Колір фону
+                        filter: blur(20px); // Розмиття фону
+                        z-index: -1; // Фон знаходиться позаду тексту
+                    }
+                }
+                
+
+                // Псевдоелемент для ліній та фону
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: -150px; // Розтягнути на всю висоту
+                    bottom: 0;
+                    left: 0;
+                    right: 9; // Зайняти всю ширину
+                    background: linear-gradient(
+                        to right,
+                        rgba($dark-red, 0.5) 0%,       // Ліва лінія
+                        $white-brown 1px,              // Фон
+                        $white-brown calc(100% - 1px), // Фон до правої лінії
+                        rgba($dark-red, 0.5) 100%      // Права лінія
+                        
+                    );
+                    z-index: -1; // Відправити лінії на задній план
+                }
+            }
+            
+            .main-content {
+                display: flex; /* Встановлюємо флексбокс */
+                flex-direction: column; /* Виводимо елементи вертикально */
+                align-items: center; /* Центруємо вміст по горизонталі */
+                
+                margin: 0 auto; /* Автоматичні відступи з обох боків для центрування */
+                text-align: center;
+                text-align: center;
+
+                h1{
+                    padding: 50px 0px 0px 0px;
+                    font-family: "Bebas Neue", serif;
+                    @include font(64, 400);
+                    color: $white;
+
+                    .map-pointer{
+                        width: 50px;
+                        height: 75px;
+                    }
+                }
+
+                p{
+                    padding: 20px 0px 0px 0px;
+                    font-family: "Amaranth", serif;
+                    @include font(24, 400);
+                    color: $white;
+                }
+
+                img{
+                    padding: 20px 0px 0px 0px;
+                    width: 150%;
+                    height: auto;
+                }
+            }
+
+
+            .right-content {
+                position: relative;
+                width: 275px; /* Ширина правого контейнера */
+                padding: 20px;
+                
+                background-color: $brown; /* Фон для правого контейнера */
+                
+                // Псевдоелемент для правої вертикальної смужки
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 20px; /* Відступ від хедера */
+                    left: -10px; /* Розташовуємо смужку ліворуч від правого контенту */
+                    width: 2px; /* Товщина лінії */
+                    height: calc(100% - 20px); /* Висота смужки, яка не перевищує висоти контейнера, без врахування відступу */
+                    background-color: white; /* Колір смужки */
+                    z-index: -1; /* Відправляємо на задній план */
+                }
+                
+                // Псевдоелемент для правої рамки
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    bottom: -50px;
+                    right: 0;
+                    width: 10px; /* Ширина лінії */
+                    z-index: -1; /* Відправляємо на задній план */
+                }
+            
+                p {
+                    margin: 150px 0px 0px 0px;
+                    font-family: "ADLaM Display", serif;
+                    @include font(24, 400);
+                    color: $white;
+                }
+            
+                a {
+                    display: inline-block;
+                    margin-top: 20px;
+                    
+                    img {
+                        width: 236px;
+                        height: 177px;
+                    }
+                }
+            }
+        }
+    }
 }
 
-.artists-page #searchButton:hover {
-    background-color: #c9a06b;
+.contacts-page{
+    background-color: $brown;
+    .contactInfo {
+        padding: 80px;
+    
+        h1 {
+            font-family: "Aoboshi One", serif;
+            @include font(64, 400);
+            color: $white;
+            border-bottom: 1px solid $white;
+            padding-bottom: 25px;
+            margin-bottom: 20px;
+        }
+    
+        .info-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+    
+            .row {
+                display: grid;
+                grid-template-columns: 1fr 2fr; // Дві колонки
+                align-items: center;
+                padding: 10px 0;
+                border-bottom: 1px solid $white;
+    
+                h2 {
+                    font-family: "Aoboshi One", serif;
+                    @include font(64, 400);
+                    color: $white;
+                    margin: 0;
+                }
+    
+                p {
+                    padding: 40px;
+                    font-family: "Aoboshi One", serif;
+                    @include font(30, 400);
+                    color: $white;
+                    border-left: 1px solid $white;
+    
+                    a {
+                        color: $white;
+                        text-decoration: underline;
+    
+                        &:hover {
+                            color: #e6e6e6;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
 }
 
-/* Фільтри */
-.artists-page .filter-section {
-    background-color: #e5d4c3;
-    padding: 20px;
-    border-radius: 10px;
-    width: 250px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
 
-.artists-page .filter-section h3 {
-    font-weight: bold;
-    margin-top: 20px;
-    font-size: 16px;
-}
 
-.artists-page .filter-section ul {
-    list-style: none;
-    padding: 0;
-}
-
-.artists-page .filter-section li {
-    margin: 10px 0;
-    font-size: 14px;
-}
-
-.artists-page .filter-section input {
-    margin-right: 5px;
-}
-
-/* Галерея */
-.artists-page .galleryArtist {
-    display: flex;
-    gap: 20px;
-    margin: 20px;
-}
-
-.artists-page .zakir, 
-.artists-page .robert {
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.artists-page .zakir img, 
-.artists-page .robert img {
-    max-width: 100%;
-    border-radius: 5px;
-}
-
-.artists-page h6 {
-    margin: 10px 0;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.artists-page button {
-    background-color: #ffc0cb;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 20px;
-    cursor: pointer;
-}
-
-.artists-page button:hover {
-    background-color: #ffa6b0;
-}
-
-/* Стилізація іконок */
-.artists-page .arrow-button img, 
-.artists-page .filter-section img {
-    cursor: pointer;
-    width: 20px;
-    height: 20px;
-    margin-left: 5px;
-}
