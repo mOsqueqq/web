@@ -8,7 +8,9 @@
     box-sizing: border-box;
 }
 
-
+.mobile{
+    display: none;
+}
 
 header {
     margin: 20px 0px 20px 0px;
@@ -669,8 +671,456 @@ header {
             }
         }
     }
-    
 }
 
+@media (max-width: 768px) {
+    header{
+        display: none;
+    }
+    main{
+        display: none;
+    }
+    .mobile{
+        display: flex;
+    }
 
+    .mobile {
+        display: flex;
+        flex-direction: column; /* Усі елементи розташовуються вертикально */
+        
+        .header-mobile {
+            display: flex; /* Використовуємо flexbox */
+            align-items: center; /* Центрує елементи по вертикалі */
+            justify-content: space-between; /* Розташовує бургер-меню та логотип по краях */
+            padding: 10px 20px; /* Відступи з боків */
+            background-color: $white-brown;
+            width: 100%;
+            .burger-menu {
+                img {
+                    width: 30px; /* Розмір іконки бургер-меню */
+                    height: auto;
+                }
+            }
+    
+            .logo {
+                flex: 1; /* Займає все доступне місце між елементами */
+                display: flex; /* Використовуємо flexbox для логотипа */
+                justify-content: center; /* Центрує логотип по горизонталі */
+                width: 100%; /* Логотип займає всю ширину контейнера */
+    
+                .logo-mobile img {
+                    width: 100%; /* Розмір логотипа */
+                    height: auto;
+                }
+            }
+        }
 
+        .main-mobile{
+            .mainPhotoGallery{
+                img{
+                    width: 100%;
+                }
+            }
+            .quote-row {
+                display: flex; /* Встановлює горизонтальний рядок */
+                flex-wrap: wrap; /* Дозволяє переносити елементи */
+                justify-content: space-between; /* Розташування стовпців з проміжком */
+                gap: 10px; /* Відстань між стовпцями */
+                margin-top: 20px;
+                background-color: $white-brown;
+                border-top: 2px solid $black;
+                border-bottom: 2px solid $black;
+                margin: 20px 5px 0px 5px;
+                padding: 15px 5px 15px 5px;
+                .quote {
+                    display: flex; /* Для зображення та тексту */
+                    align-items: center; /* Центрування по вертикалі */
+                    gap: 15px; /* Відстань між фото та текстом */
+                    flex: 1; /* Стовпці займатимуть рівний простір */
+                   
+                    padding: 10px;
+        
+                    img {
+                        width: 40%; /* Розмір зображення */
+                        height: auto;
+                        border-radius: 5%; /* Робить фото круглим */
+                    }
+        
+                    .text-quote {
+                        display: flex;
+                        flex-direction: column; /* Текст в колонку */
+                        gap: 5px; /* Відстань між текстом і автором */
+        
+                        p {
+                            font-family: "Akaya Kanadaka", serif;
+                            @include font(13, 400);
+                            color: $black;
+                            margin: 0;
+                        }
+        
+                        .text-author {
+                            font-family: "Akaya Kanadaka", serif;
+                            @include font(11, 400);
+                            color: $black;
+                        }
+                    }
+                    
+                }
+            }
+            .gallery {
+                .items-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Дві колонки, одна або більше залежно від розміру екрану */
+                    gap: 10px; /* Проміжок між картками */
+                    padding: 20px;
+            
+                    .item {
+                        background-color: $white-brown; /* Фон картки */
+                        
+                        border-radius: 10px;
+                        padding: 15px;
+                        text-align: center;
+                        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тінь для картки */
+                        transition: transform 0.3s ease, box-shadow 0.3s ease;
+            
+                        &:hover {
+                            transform: translateY(-5px);
+                            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+                        }
+            
+                        h3 {
+                            font-family: "Akaya Kanadaka", serif;
+                            @include font(15, 400);
+                            color: $white;
+                            margin-bottom: 10px;
+                        }
+            
+                        p {
+                            font-family: "Akaya Kanadaka", serif;
+                            @include font(15, 400);
+                            color: $white;
+                            margin-bottom: 15px;
+                        }
+            
+                        a img {
+                            width: 100%; /* Фото картини заповнює ширину контейнера */
+                            height: auto;
+                            object-fit: cover; /* Зберігає пропорції зображення */
+                            border-radius: 8px;
+                            margin-bottom: 10px;
+                        }
+            
+                        .author {
+                            display: flex;
+                            align-items: center; /* Центрує фото і текст автора по вертикалі */
+                            gap: 10px; /* Відступ між фото і текстом */
+                            margin-top: 15px;
+            
+                            img {
+                                width: 40px; /* Розмір фото автора */
+                                height: 40px;
+                                border-radius: 50%;
+                                object-fit: cover;
+                            }
+            
+                            .author-text {
+                                padding-top: 15px;
+                                font-family: "Aoboshi One", serif;
+                                @include font(15, 400);
+                                color: $black;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .header-burger-menu-mobile{
+            .header-mobile{
+                background-color: $dark-grey;
+            }
+        }
+
+        .burger-menu-mobile {
+            padding: 20px;
+            background-color: $dark-grey; /* Фонова заливка */
+            height: 100vh; /* Займає всю висоту екрана */
+            display: flex;
+            flex-direction: column; /* Всі елементи йдуть вертикально */
+            align-items: flex-start; /* Вирівнювання по лівому краю */
+        
+            .burgr-rows {
+                width: 100%; /* Рядки займають всю ширину */
+        
+                .row {
+                    width: 100%; /* Ширина рядка */
+                    padding: 15px 0; /* Відступи зверху та знизу */
+                    border-bottom: 2px solid $white; /* Полоска під рядком */
+        
+                    a {
+                        font-family: "Mystery Quest", serif;
+                        @include font(32, 400);
+                        color: $white;
+                        text-decoration: none; /* Забираємо підкреслення */
+                        display: block; /* Забезпечує весь рядок клікабельним */
+                        transition: color 0.3s ease;
+        
+                        &:hover {
+                            color: #555; /* Зміна кольору при наведенні */
+                        }
+                    }
+                }
+        
+                .social-icons {
+                    margin-top: 20px;
+                    width: 100%; /* Вирівнюємо до ширини контейнера */
+                    
+                    h2 {
+                        font-family: "Mystery Quest", serif;
+                        @include font(32, 400);
+                        color: $white;
+                        margin-bottom: 15px;
+                    }
+        
+                    a {
+                        margin-right: 15px; /* Проміжок між іконками */
+                        img {
+                            width: 50px; /* Розмір іконок соціальних мереж */
+                            height: auto;
+                            transition: transform 0.3s ease;
+        
+                            &:hover {
+                                transform: scale(1.1); /* Збільшуємо іконку при наведенні */
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .artist-mobile {
+            padding: 20px;
+            background-color: $brown;
+            
+            .galleryArtist-mobile {
+                display: flex;
+                flex-direction: column; /* Всі картки в колонку */
+                gap: 20px; /* Проміжок між картками */
+                
+                .author-block {
+                    display: flex;
+                    flex-direction: column; /* Всі елементи в колонку */
+                    background-color: $white-brown; /* Фон для картки */
+                    padding: 20px;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Тінь для картки */
+                    
+                    .author {
+                        display: flex;
+                        align-items: center; /* Вертикальне вирівнювання */
+                        margin-bottom: 20px;
+        
+                        img {
+                            width: 60px; /* Розмір фото автора */
+                            height: 60px;
+                            border-radius: 50%; /* Кругле зображення */
+                            margin-right: 15px;
+                        }
+        
+                        h6 {
+                            font-family: "Aoboshi One", serif;
+                            @include font(16, 400);
+                            color: $white;
+                        }
+                    }
+        
+                    .works {
+                        display: flex;
+                        gap: 20px; /* Проміжок між роботами */
+                        
+                        .work {
+                            width: 100%; /* Розтягнути на всю ширину */
+                            text-align: center; /* Вирівнювання по центру */
+                            
+                            img {
+                                width: 100%; /* Розмір зображення картини */
+                                height: auto;
+                                border-radius: 8px; /* Краї картин округлені */
+                                margin-bottom: 10px;
+                            }
+        
+                            h6 {
+                                font-family: "Arapey", serif;
+                                @include font(20, 400);
+                                color: $white;
+                                margin-bottom: 5px;
+                            }
+        
+                            p {
+                                font-family: "Arapey", serif;
+                                @include font(20, 400);
+                                color: $white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        
+
+        .event-mobile {
+            padding: 20px;
+            
+            .event-description {
+                text-align: center; /* Центруємо текст */
+                margin-bottom: 40px;
+        
+                h1 {
+                    font-family: "Bebas Neue", serif;
+                    @include font(30, 400);
+                    color: $white;
+                    margin-bottom: 20px;
+                }
+        
+                .map-pointer {
+                    width: 18px; /* Розмір іконки */
+                    height: 23px;
+                    margin-left: 10px;
+                }
+        
+                img {
+                    width: 100%; /* Розтягуємо зображення на всю ширину */
+                    height: auto;
+                }
+        
+                p {
+                    padding-top: 30px;
+                    font-family: "Amaranth", serif;
+                    @include font(24, 400);
+                    color: $white;
+                    padding-bottom: 35px;
+                    border-bottom: 2px solid $white;
+                }
+            }
+        
+            .event-map-card {
+                border-radius: 12px; /* Заокруглені кути */
+                padding: 20px;
+                max-width: 100%; /* Обмежуємо ширину картки */
+                margin: 20px; /* Центруємо картку на екрані */
+                background-color: $dark-red;
+                
+                .event-map-header {
+                    text-align: left;
+                    margin-bottom: 20px;
+                    
+                    p {
+                        font-family: "Are You Serious", serif;
+                        @include font(45, 400);
+                        color: $white;
+                        margin: 0;
+                    }
+                }
+            
+                .event-map-content {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    
+                    .event-map-image {
+                        width: 150%; /* Встановлюємо ширину карти */
+                        height: auto;
+                        border-radius: 8px;
+                    }
+            
+                    .social-icons {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        gap: 15px;
+                        padding-right: 40px;
+                        a {
+                            img {
+                                width: 70px; /* Розмір іконок */
+                                height: 70px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .contact-mobile {
+            padding: 20px;
+            
+            /* Заголовок з закріпленим лівим відступом */
+            h1 {
+                padding-top: 50px;
+                text-align: left;
+                font-family: "Aoboshi One", serif;
+                @include font(36, 400);
+                color: #153E0B;
+                margin-bottom: 20px;
+                border-bottom: 2px solid $white;
+                padding-bottom: 50px;
+            }
+        
+            .info-grid {
+                display: grid;
+
+                grid-template-columns: 1fr; /* Одна колонка по замовчуванню */
+                
+                .row {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr; /* Дві колонки */
+                    border-bottom: 2px solid $white;
+        
+                    h2 {
+                        font-family: "Aoboshi One", serif;
+                        @include font(24, 400);
+                        color: #4F4444;
+                        margin: 0;
+                        padding-bottom: 40px;
+                    }
+        
+                    p {
+                        font-family: "Aoboshi One", serif;
+                        @include font(16, 400);
+                        color: $white;
+                        border-left: 2px solid $white;
+                        padding-left: 20px;
+                        padding-top: 20px;
+                        padding-bottom: 20px;
+                    }
+                }
+            }
+        
+            .social-icons {
+                padding-top: 40px;
+                display: flex;
+                justify-content: center;
+                gap: 50px;
+                margin-top: 30px;
+        
+                a {
+                    img {
+                        width: 70px;
+                        height: 70px;
+                    }
+                }
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .info-grid {
+                grid-template-columns: 1fr 1fr; /* Для великих екранів - дві колонки */
+            }
+        
+            .row {
+                grid-template-columns: 1fr 1fr; /* Дві колонки */
+            }
+        }
+        
+    }
+}
