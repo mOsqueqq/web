@@ -4,6 +4,63 @@ main, .artists-page header, .artists-page.search-section, .artists-page.filter-s
     background-color: #A59987;
 }
 
+// Загальні стилі для хедера
+// SCSS для оновленого хедера
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
+    .logo {
+      img {
+        width: 120px;
+        height: auto;
+      }
+    }
+  
+    .menu {
+      ul.navigation {
+        display: flex;
+        gap: 1.5rem;
+  
+        li {
+          a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: color 0.3s ease;
+  
+            &:hover {
+              color: #007bff;
+            }
+          }
+        }
+      }
+    }
+  
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+  
+      a {
+        img {
+          width: 25px;
+          height: auto;
+          transition: opacity 0.3s ease;
+        }
+  
+        &:hover img {
+          opacity: 0.7;
+        }
+      }
+    }
+}
+  
+
 .artists-page header {
     display: flex;
     justify-content: space-between;
@@ -80,7 +137,7 @@ main, .artists-page header, .artists-page.search-section, .artists-page.filter-s
     margin: 20px 0;
 }
 
-.artists-page . {
+.artists-page{
 
     display: flex;
     align-items: center;

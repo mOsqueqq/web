@@ -1,0 +1,163 @@
+main, .artists-page header, .artists-page.search-section, .artists-page.filter-section, .artists-page.arrow-img-sort, .artists-page.navigation {
+  background-color: #a59987;
+}
+
+.artists-page header {
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  display: flex;
+}
+
+.artists-page {
+  color: #333;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.artists-page.search-sectionsort {
+  background-color: #fff;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  max-width: 600px;
+  padding: 20px;
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 4px 6px #0000001a;
+}
+
+.artists-page .logo img {
+  height: 100px;
+}
+
+.arrow-img-sort {
+  cursor: pointer;
+}
+
+.artists-page .navigation {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+.artists-page .navigation li {
+  margin: 0 20px;
+}
+
+.artists-page .navigation a img {
+  height: 35px;
+}
+
+.artists-page .social-icons img {
+  height: 25px;
+  margin-left: 10px;
+}
+
+.doublearrow-img, .arrow-img {
+  pointer-events: none;
+  cursor: default;
+}
+
+.artists-page .search-section, .artists-page {
+  align-items: center;
+  margin: 20px 0;
+  display: flex;
+}
+
+.artists-page #searchInput {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 220px;
+  padding: 10px;
+}
+
+.artists-page #searchButton {
+  cursor: pointer;
+  background-color: tan;
+  border: none;
+  border-radius: 5px;
+  margin-left: 5px;
+  padding: 10px 15px;
+}
+
+.artists-page #searchButton:hover {
+  background-color: #c9a06b;
+}
+
+.artists-page .filter-section {
+  background-color: #e5d4c3;
+  border-radius: 10px;
+  width: 250px;
+  padding: 20px;
+  box-shadow: 0 4px 6px #0000001a;
+}
+
+.artists-page .filter-section h3 {
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.artists-page .filter-section ul {
+  padding: 0;
+  list-style: none;
+}
+
+.artists-page .filter-section li {
+  margin: 10px 0;
+  font-size: 14px;
+}
+
+.artists-page .filter-section input {
+  margin-right: 5px;
+}
+
+.artists-page .galleryArtist {
+  gap: 20px;
+  margin: 20px;
+  display: flex;
+}
+
+.artists-page .zakir, .artists-page .robert {
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px #0000001a;
+}
+
+.artists-page .zakir img, .artists-page .robert img {
+  border-radius: 5px;
+  max-width: 100%;
+}
+
+.artists-page h6 {
+  margin: 10px 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.artists-page button {
+  cursor: pointer;
+  background-color: pink;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+}
+
+.artists-page button:hover {
+  background-color: #ffa6b0;
+}
+
+.artists-page .arrow-button img, .artists-page .filter-section img {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+}
+/*# sourceMappingURL=index.00f4e761.css.map */

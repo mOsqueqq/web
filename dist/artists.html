@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artists</title>
+    <link rel="stylesheet" href="/index.4df46885.css">
 </head>
-<body>
+<body class="artists-page">
+
         <!-- Header -->
         <header>
             <a class="logo" href="/index.html">
@@ -51,93 +53,141 @@
         <!-- Main Content -->
     <main>
         <section class="search">
-            <div class="search-section">
-                <input type="text" id="searchInput" placeholder="Search by name">
+            <div class="search-sectionsort">
+                <input type="text" id="search-sort" placeholder="Search by name">
                 <button id="searchButton">🔍</button>
-            </div>  
-            <div class="search-section">
-                <button id="arrowButton" class="arrow-button">
-                    <img src="/Vector.a7696495.svg" alt="Vector Button">
-                </button>                
             </div>
+            
+            <div class="sort-by">
+                <p>Sort by: <strong>Default</strong></p>
+                <img src="/microarrow.b3b2f811.svg" alt="microarrowsort" class="arrow-img-sort" id="microArrow">
+                <img src="/sort.54ad51d3.svg" alt="sort" class="sort-img">
+            </div>
+            
             <div class="filter-section">
                 <!-- Filter header -->
-                <h3><strong>Filter</strong></h3>
-                <img src="/arrow.d8f6d8d4.svg" alt="Arrow Button">
+                <h3>
+                    <strong>
+                        Filter 
+                        <img src="/arrow.d8f6d8d4.svg" alt="Arrow Button" class="doublearrow-img"> 
+                    </strong>
+                </h3>
+                
                 <!-- Type of art -->
-                <h4><strong>Type of art</strong></h4>
+                <h3>
+                    <strong>Type of art</strong>
+                    <img src="/microarrow.b3b2f811.svg" alt="microarrow" class="arrow-img">
+                </h3>
                 <ul>
-                    
-                    <li>Painting</li>
-                    <li>Graphics</li>
-                    <li>Photography</li>
-                    <li>Digital art</li>
-                    <li>Sculpture</li>
+                    <li>
+                        <img src="/point.9b7dadda.svg" alt="point">
+                        Painting
+                    </li>
+                    <li>
+                        <img src="/unfiledPoint.2a9d69bc.svg" alt="point">
+                        Graphics
+                    </li>
+                    <li>
+                        <img src="/unfiledPoint.2a9d69bc.svg" alt="point">
+                        Photography
+                    </li>
+                    <li>
+                        <img src="/unfiledPoint.2a9d69bc.svg" alt="point">
+                        Digital art
+                    </li>
+                    <li>
+                        <img src="/unfiledPoint.2a9d69bc.svg" alt="point">
+                        Sculpture
+                    </li>
                 </ul>
-                <img src="/microarrow.b3b2f811.svg" alt="microarrow">
-                <!-- Type of user -->
-                <h4><strong>Type of user</strong></h4>
-                <ul>
-                    <li>Artists</li>
-                    <li>Galleries</li>
-                </ul>
-                <img src="/microarrow.b3b2f811.svg" alt="microarrow">
-                <!-- Country -->
-                <h4><strong>Country</strong></h4>
-                <ul>
-                    <li>USA</li>
-                    <li>Ukraine</li>
-                    <li>India</li>
-                </ul>
-                <img src="/microarrow.b3b2f811.svg" alt="microarrow">
 
-                <!-- Search field -->
+                <!-- Type of user -->
+                <h3>
+                    <strong>Type of user</strong>
+                    <img src="/microarrow.b3b2f811.svg" alt="microarrow" class="arrow-img">
+                </h3>
+                <ul>
+                    <li>
+                        <img src="/unfiledPoint.2a9d69bc.svg" alt="point">
+                        Artists
+                    </li>
+                    <li>
+                        <img src="/unfiledPoint.2a9d69bc.svg" alt="point">
+                        Galleries
+                    </li>
+                </ul>
+                <!-- Country -->
+                <h3>
+                    <strong>Country</strong>
+                    <img src="/microarrow.b3b2f811.svg" alt="microarrow" class="arrow-img">
+                </h3>
+                
                 <div class="search-section">
-                <input type="text" id="searchInput" placeholder="Search by name">
-                <button id="searchButton">🔍</button>
-                </div>  
+                    <input type="text" id="searchInput" placeholder="Search by name">
+                    <button id="searchButton">🔍</button>
+                </div> 
+                <ul>
+                    <li>
+                        <img src="/unfiledPoint.2a9d69bc.svg" alt="point">
+                        USA
+                    </li>
+                    <li>
+                        <img src="/unfiledPoint.2a9d69bc.svg" alt="point">
+                        Ukraine
+                    </li>
+                    <li>
+                        <img src="/unfiledPoint.2a9d69bc.svg" alt="point">
+                        India
+                    </li>
+                </ul>
+ 
             
-                <p>Sort by: <strong>Default</strong></p>
-                <img src="/sort.54ad51d3.svg" alt="sort">
+                
                      
         </div></section>
 
         <section class="galleryArtist">
-            <div class="itemArtist">
+            <div class="zakir">
                 <img src="/zakirIMG.cfaa8a27.svg">
-                <h3>Zakir Ahmedov • Azerbaijan</h3>
+                <h6>Zakir Ahmedov • Azerbaijan</h6>
                 <a href="#">
                     <img src="/humans.b2f9eb5b.svg" alt="humans">
                 </a>
-                <h3>Walk</h3>
+                <h6>Walk</h6>
                 <p><strong>30000$</strong></p>
 
                 <a href="#">
                     <img src="/fish.690ce5d2.svg" alt="fish">
                 </a>
-                <h3>Fish</h3>
+                <h6>Fish</h6>
                 <p><strong>12000$</strong></p>
 
                 <button>Follow</button>
+                <button class="arrowButton">
+                    <img src="/Vector.a7696495.svg" alt="Vector Button">
+                </button>                
             </div>
 
-            <div class="item">
+            <div class="robert">
                 <a href="#">
                     <img src="/hand.dd9b2e62.svg" alt="Ring stand v1.0">
                 </a>
                 
-                <h3>Ring stand v1.0</h3>
+                <h6>Ring stand v1.0</h6>
                 <p><strong>5250$</strong></p>
 
                 <a href="#">
                     <img src="/wars.20e23443.svg" alt="Anakin - Vader: Reflection Lost">
                 </a>
-                <h3>Anakin - Vader: Reflection Lost</h3>
+                <h6>Anakin - Vader: Reflection Lost</h6>
                 <p><strong>1600$</strong></p>
 
                 <img src="/robertIMG.e99448c7.svg">
-                <h3>Robert Nelson • Spain</h3>
+                <h6>Robert Nelson • Spain</h6>
                 <button>Follow</button>
+                <button class="arrowButton">
+                    <img src="/vectorSlider.d0075fcc.svg" alt="Vector Button">
+                </button> 
             </div>
                 
         </section>
